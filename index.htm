@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Checklist Diário</title>
+  <title>Checklist Diário - Assistente de Contas a Pagar </title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -163,7 +163,7 @@
           ["Diario","Conferir se notas foram baixadas no departamento e centro de custo correto.  Conferir se foi pago via banco ou caixa. Também conferir se tem nota com desconto (ex verba)","'FIN-POP-008-TBL","SICF","Coordenadora Administrativa"],
           ["Diario","Conferir o lançamento do caixa,se foi movito para cada conta e departamento correto. ","FIN-POP-008-TBL","SICF","Coordenadora Administrativa "],
           ["Diario","Conferir Saldo do caixa. Fazer a comparação com o saldo do sistema e saldo em dinheiro do caixa. devem estar alinhasdos após os lançamentos","'FIN-POP-008-TBL","SICF","Coordenadora Administrativa"],
-         
+           ["Diario","Prenchencher planilha de saldo, com valor de cada conta em especifico. fazer a comparação com o SICF se os valores estão iguais. caso esteja dando diferença, algum lançamento foi feito errado","FIN-POP-008-TBL","SICF","Coordenadora Administrativa"],
           ["Diario","Enviar saldo, juntamente com a composição de todas as contas para a centralizadora. após a conferencia autorizar o encerramento do caixa","'FIN-POP-008-TBL","SKYPE/SICF","Coordenadora Administrativa"],
           ["Diario","Separar valor do caixa, para envio ao banco","'FIN-POP-009-TBL","BANCO","Coordenadora Administrativa"],
           ["3 VEZES NA SEMANA","Enviar por malote, documentos originais dos caixas encerrados,juntamente com os livros fiscais,para a centralizadora","FIN-POP-009-TBL","Malote","Coordenadora Administrativa"],
@@ -178,7 +178,10 @@
                ["Diario","ABRIR PLANILHA DO CAP E CRIAR UMA NOVA GUIA COM A DATA DOS PAGAMENTOS QUE SERÃO LIBERADOS","FIN-POP-010-TBL","PLANILHA CAP","Coordenadora Administrativa"],
                ["Diario","TIRAR RELATÓRIO DO SICF 06-3-300 E FAZER A VINCULAÇÃO NA PLANILHA DO CAP","FIN-POP-010-TBL","SICF","Coordenadora Administrativa"],
             ["Diario","COPIAR NA PLANILHA AS NOTAS DA MATRIZ, RELACIONADAS AOS PAGAMENTOS EM QUESTÃO E FAZER A COMPARAÇÃO COM O DDA","FIN-POP-010-TBL","PLANILHA CAP","Coordenadora Administrativa"],
-   ["Diario","LIBERAR DDA NO SISTEMA,3-2-202-4.LIBERA O BOLETO FAZENDO A VINCULAÇÃO COM O SISTEMA. COMPARANDO COM A PLANILHA DO CAP. O VALOR TEM QUE BATER","FIN-POP-010-TBL","SICF","Coordenadora Administrativa"],
+            ["Diario","NOTAS QUE ESTÃO NO CONTAS A PAGAR E NÃO ESTÃO NO DDA, SERÃO INFORMADAS POR SOP","FIN-POP-010-TBL","PLANILHA CAP","Coordenadora Administrativa"],   
+            ["Diario","BOLETOS EM ABERTO NO DDA E SEM  NOTA FISCAL, PROCURAR  NO CPD, NO CASO DE ESTAREM LÁ PARA DAR ENTRADA. NÃO ESTANDO NO CPD, ENTRAR EM CONTATO COM O CLIENTE PARA ENTENDER A SITUÇÃO. SOLICITAR AS DEVIDAS BAIXAS OU PRORROGAÇÃO NECESSÁRIA","FIN-POP-010-TBL","BANCO","Coordenadora Administrativa"],
+            ["Diario","ANOTAR NA FRENTE DE CADA NOTA, O CENTRO DE CUSTO E O DEPARTAMENTO","FIN-POP-010-TBL","PLANILHA CAP","Coordenadora Administrativa"],
+            ["Diario","LIBERAR DDA NO SISTEMA,3-2-202-4.LIBERA O BOLETO FAZENDO A VINCULAÇÃO COM O SISTEMA. COMPARANDO COM A PLANILHA DO CAP. O VALOR TEM QUE BATER","FIN-POP-010-TBL","SICF","Coordenadora Administrativa"],
              ["Diario","ENVIAR A REMESSA DOS PAGAMENTOS NO BANCO E SALVAR OS COMPROVANTES","FIN-POP-010-TBL","BANCO","Coordenadora Administrativa"],
               ["Diario","ANOTAR VENCIMENTO E CENTRO DE CUSTO EM TODAS AS NOTAS DE SERVIÇO RECEBIDAS NO DIA","-","EMAIL/SKYPE/WHATSAAP","Coordenadora Administrativa"],
                ["Diario","NOTAS DO ESTADO DO PARANÁ, FAZER A INSCRITURAÇÃO NO SITE DA PREFEITURA E ANOTAR O NUMERO DE REGISTRO NA NF","-","SITE PREFEITURA","Coordenadora Administrativa"],
@@ -192,7 +195,10 @@
             ["Mensal","FILTRAR NO SITE DO ARQUIVEI, AS NOTAS REFERENTE AO MES RETRASADO,QUE ESTÃO COMO CIENTE E NÃO REALIZADA","-","SITE ARQUIVEI","Coordenadora Administrativa"],
             ["Mensal","EXPORTAR O RELATÓRIO PARA O EXCEL","-","SITE ARQUIVEI","Coordenadora Administrativa"],
             ["Mensal","APAGAR AS NOTAS CANCELADAS DO RELATÓRIO E TAMBÉM AS NOTAS DE ENTRADA","-","EXCEL","Coordenadora Administrativa"],
-                        ]
+            ["Mensal","FAZER A CONFERENCIA NOTA POR NOTA COM O SISTEMA NO 32-1-0701. PARA VER SE FICOU ALGUMA NOTA SER DAR O ACEITE","-","EXCEL","Coordenadora Administrativa"],
+            ["Mensal","APÓS CONFERENCIA, ENTRAR NO SITE DO ARQUIVEI E PESQUISA NOTA POR NOTA, E MANIFESTA EM DESCONHECER","-","EXCEL","Coordenadora Administrativa"],
+            ["Mensal","TIRAR OUTRO RELATÓRIO, PARA CONFERIR SE FICOU ALGUMA NOTA SEM DENEGAR","-","ECEL","Coordenadora Administrativa"],
+                               ]
 
         for (let i = 0; i < atividades.length; i++) {
           document.write(`
@@ -281,7 +287,7 @@
     formData.append("data", data);
     formData.append("unidade", unidade);
 
-    fetch("https://script.google.com/macros/s/AKfycby44lrUIGSZeXE3uiJSOMAbRVri0NMQ5IQkO1PfYIy8xRG_klNPJZFrk3QXfy2DGP9cxA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwqD1V2-wYxsK94SBDYfo1jgcMPX7uIcIOHHEnwyrAMMy_EJIBZVZaekw4PTtQ9zBuD0g/exec", {
       method: "POST",
       body: formData
     })
@@ -324,19 +330,32 @@
 <script>
   window.onload = function () {
     const dataInput = document.getElementById("data");
-    const hoje = new Date().toISOString().split("T")[0];
-    dataInput.value = hoje;
-    dataInput.min = hoje;
-    dataInput.max = hoje;
-    dataInput.readOnly = true; // impede que o usuário digite manualmente
+    // Obtém a data e hora local do dispositivo (Campinas, SP, Brasil)
+    const agora = new Date(); 
+    
+    const ano = agora.getFullYear();
+    // Mês é de 0 a 11, por isso somamos 1 e usamos padStart para ter sempre dois dígitos
+    const mes = String(agora.getMonth() + 1).padStart(2, '0'); 
+    // Dia do mês, com padStart para ter sempre dois dígitos
+    const dia = String(agora.getDate()).padStart(2, '0');
+
+    // Formata a data como 'YYYY-MM-DD'
+    const hojeFormatado = `${ano}-${mes}-${dia}`;
+    
+    // Define o valor do campo data para o dia atual
+    dataInput.value = hojeFormatado; 
+    // Restringe a data mínima ao dia atual, impedindo seleção de datas passadas
+    dataInput.min = hojeFormatado;   
+    // Restringe a data máxima ao dia atual, impedindo seleção de datas futuras
+    dataInput.max = hojeFormatado;   
+    // Impede que o usuário digite manualmente no campo
+    dataInput.readOnly = true;       
+    // Impede o clique para abrir o calendário de seleção de data
+    dataInput.style.pointerEvents = 'none'; 
+    // Opcional: Adiciona um estilo visual para indicar que o campo está desabilitado
+    dataInput.style.backgroundColor = '#e9ecef'; 
   };
 </script>
 
-
-
 </body>
-
-
-
-
 </html>
